@@ -1,2 +1,2 @@
-# PanlimaNjol
+# PanglimaNjol
 "Website Biodata PanglimaNjol"
