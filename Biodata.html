@@ -2,38 +2,59 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Irvan Afandi — Biodata & Projek (Tema Panglima Islam)</title>
+
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Icon set -->
+  <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --gold:#f5c542;
-    }
-    html { scroll-behavior:smooth; }
+    :root { --gold:#f5c542; }
+    html { scroll-behavior: smooth; font-family: 'Poppins', sans-serif; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Playfair Display', serif; }
+
     /* Backgrounds */
-    .bg-hero { background: url('bg-perang-home.jpg') center/cover no-repeat; }
+    .bg-hero { position: relative; overflow: hidden; height: 100vh; }
     .bg-projects { background: url('bg-perang-projects.jpg') center/cover no-repeat; }
-    /* Overlays */
-    .overlay { background: linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.7)); }
+
+    /* Video Overlay */
+    .overlay { position: relative; z-index: 10; background: linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.7)); }
+
     /* Animations */
     .fade-in { animation: fade .7s ease-out both; }
     .slide-up { animation: slideUp .7s ease-out both; }
     @keyframes fade { from {opacity:0} to {opacity:1} }
     @keyframes slideUp { from {opacity:0; transform: translateY(16px)} to {opacity:1; transform: translateY(0)} }
-    /* Accessibility: respect reduced motion */
+
+    /* Accessibility */
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration:0.01ms !important; }
     }
+
     /* Card glass style */
     .glass { background:rgba(0,0,0,.55); backdrop-filter: blur(8px); box-shadow: 0 6px 28px rgba(0,0,0,.45); }
-    /* Active nav underline */
+
+    /* Active nav */
     .nav-active { color: var(--gold); }
+
+    /* Video full */
+    .video-bg { position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+
+    /* Card hover */
+    .card-hover:hover { transform: translateY(-6px); transition:0.3s ease; }
+
+    /* Modal */
+    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); justify-content:center; items-center; z-index:50; }
+    .modal-content { background:#111; border-radius:1rem; max-width:600px; padding:2rem; color:#fff; position:relative; }
+    .modal-close { position:absolute; top:0.5rem; right:1rem; font-size:1.5rem; cursor:pointer; color:var(--gold); }
   </style>
 </head>
-<body class="min-h-screen bg-[#0b0b0e] text-zinc-100">
+<body class="bg-[#0b0b0e] text-zinc-100">
+
   <!-- NAVBAR -->
   <header class="fixed top-0 inset-x-0 z-50 bg-black/60 backdrop-blur border-b border-white/10">
     <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
@@ -49,132 +70,169 @@
   </header>
 
   <main class="pt-20">
-    <!-- HOME / BIODATA -->
-    <section id="home" class="relative bg-hero">
-      <div class="overlay">
-        <div class="mx-auto max-w-5xl px-4 py-24 sm:py-28">
-          <div class="grid lg:grid-cols-[260px,1fr] gap-8 items-center">
-            <!-- Foto Profil -->
-            <div class="flex flex-col items-center">
-              <img src="/448786469_779044004218478_7681026214239985584_n.jpg" alt="Foto Irvan Afandi" class="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-[var(--gold)] shadow-xl object-cover fade-in" />
-              <div class="mt-4 flex items-center gap-3 text-2xl">
-                <a href="https://www.instagram.com/" aria-label="Instagram" class="hover:text-pink-400 transition" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
-                <a href="#" aria-label="WhatsApp" class="hover:text-green-400 transition" title="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
-                <a href="#" aria-label="Facebook" class="hover:text-blue-400 transition" title="Facebook"><i class="ph ph-facebook-logo"></i></a>
-                <a href="#" aria-label="TikTok" class="hover:text-red-400 transition" title="TikTok"><i class="ph ph-tiktok-logo"></i></a>
-                <a href="mailto:emailkamu@example.com" aria-label="Email" class="hover:text-yellow-300 transition" title="Email"><i class="ph ph-envelope"></i></a>
-              </div>
-            </div>
 
-            <!-- Biodata Card -->
-            <div class="glass rounded-2xl p-6 sm:p-8 border border-white/10 slide-up">
-              <h1 class="text-3xl sm:text-4xl font-bold text-[var(--gold)]">Irvan Afandi</h1>
-              <p class="mt-1 text-zinc-300">Santri • Pecinta Sejarah • Informatika</p>
-              <div class="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
-                <p><span class="text-zinc-400">📅 Tanggal Lahir:</span> <span class="font-semibold">13 Desember 2005</span></p>
-                <p><span class="text-zinc-400">📍 Asal:</span> <span class="font-semibold">Nganjuk</span></p>
-                <p><span class="text-zinc-400">📖 Hobi:</span> <span class="font-semibold">Membaca sejarah, menulis, coding</span></p>
-                <p><span class="text-zinc-400">🎯 Fokus:</span> <span class="font-semibold">Sejarah Kebudayaan Islam & Teknologi</span></p>
-              </div>
-              <p class="mt-6 italic text-zinc-200">“Kalau bukan kita siapa lagi. Kalau bukan sekarang kapan lagi.”</p>
-              <div class="mt-6">
-                <a href="#projek" class="inline-flex items-center gap-2 rounded-xl bg-[var(--gold)] text-black font-semibold px-5 py-3 hover:brightness-110 active:scale-[.98] transition">
-                  Lihat Projek <i class="ph ph-arrow-right"></i>
-                </a>
-              </div>
+    <!-- HOME / BIODATA -->
+    <section id="home" class="bg-hero flex items-center justify-center">
+      <video class="video-bg" autoplay muted loop playsinline>
+        <source src="/snaptik_7440809015132687671_v2.mp4" type="video/mp4">
+      </video>
+      <div class="overlay w-full h-full flex items-center justify-center">
+        <div class="mx-auto max-w-5xl px-4 py-24 sm:py-28 grid lg:grid-cols-[260px,1fr] gap-8 items-center">
+
+          <!-- Foto Profil -->
+          <div class="flex flex-col items-center">
+            <img src="/448786469_779044004218478_7681026214239985584_n.jpg" alt="Foto Irvan Afandi" class="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-[var(--gold)] shadow-xl object-cover fade-in" />
+            <div class="mt-4 flex items-center gap-3 text-2xl">
+              <a href="https://www.instagram.com/" class="hover:text-pink-400 transition"><i class="ph ph-instagram-logo"></i></a>
+              <a href="#" class="hover:text-green-400 transition"><i class="ph ph-whatsapp-logo"></i></a>
+              <a href="#" class="hover:text-blue-400 transition"><i class="ph ph-facebook-logo"></i></a>
+              <a href="#" class="hover:text-red-400 transition"><i class="ph ph-tiktok-logo"></i></a>
+              <a href="mailto:emailkamu@example.com" class="hover:text-yellow-300 transition"><i class="ph ph-envelope"></i></a>
             </div>
           </div>
+
+          <!-- Biodata Card -->
+          <div class="glass rounded-2xl p-6 sm:p-8 border border-white/10 slide-up">
+            <h1 class="text-3xl sm:text-4xl font-bold text-[var(--gold)]">Irvan Afandi</h1>
+            <p class="mt-1 text-zinc-300">Santri • Pecinta Sejarah • Informatika</p>
+            <div class="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
+              <p><span class="text-zinc-400">📅 Tanggal Lahir:</span> <span class="font-semibold">13 Desember 2005</span></p>
+              <p><span class="text-zinc-400">📍 Asal:</span> <span class="font-semibold">Nganjuk</span></p>
+              <p><span class="text-zinc-400">📖 Hobi:</span> <span class="font-semibold">Membaca sejarah, menulis, coding</span></p>
+              <p><span class="text-zinc-400">🎯 Fokus:</span> <span class="font-semibold">Sejarah Kebudayaan Islam & Teknologi</span></p>
+            </div>
+            <p class="mt-6 italic text-zinc-200">“Kalau bukan kita siapa lagi. Kalau bukan sekarang kapan lagi.”</p>
+            <div class="mt-6">
+              <a href="#projek" class="inline-flex items-center gap-2 rounded-xl bg-[var(--gold)] text-black font-semibold px-5 py-3 hover:brightness-110 active:scale-[.98] transition">
+                Lihat Projek <i class="ph ph-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projek" class="relative bg-projects">
+    <section id="projek" class="relative bg-projects py-24">
       <div class="overlay">
-        <div class="mx-auto max-w-6xl px-4 py-24 sm:py-28">
+        <div class="mx-auto max-w-6xl px-4">
           <div class="text-center mb-10 fade-in">
             <h2 class="text-3xl sm:text-4xl font-extrabold text-[var(--gold)] tracking-wide">Projek — Panglima Islam</h2>
             <p class="mt-3 text-zinc-200 max-w-2xl mx-auto">Menghidupkan semangat para panglima: keberanian, ilmu, dan iman. Konten sejarah dikemas modern untuk generasi hari ini.</p>
           </div>
 
-          <!-- Highlight Tokoh -->
-          <div class="grid lg:grid-cols-2 gap-8 items-center">
-            <div class="glass rounded-2xl p-6 sm:p-8 border border-white/10 slide-up">
-              <h3 class="text-2xl font-bold text-[var(--gold)]">Khalid bin Walid</h3>
-              <p class="mt-2 text-zinc-200">Sang <em>Sayfullah</em> (Pedang Allah) — simbol strategi, keteguhan, dan kecepatan mengambil keputusan dalam jihad.</p>
-              <blockquote class="mt-4 border-l-4 border-[var(--gold)] pl-4 italic text-zinc-100">“Aku mencari mati syahid di setiap palung peperangan, namun tak kutemukan.”</blockquote>
-              <p class="mt-4 text-sm text-zinc-300">Rencana konten: ringkas biografi, taktik perang, pelajaran karakter, dan visual peta pertempuran.</p>
-            </div>
-            <div class="flex justify-center">
-              <img src="/image.png" alt="Ilustrasi Khalid bin Walid" class="w-72 sm:w-80 rounded-2xl border-4 border-[var(--gold)] shadow-2xl fade-in object-cover" />
-            </div>
-          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-          <!-- Roadmap / Kartu Proyek -->
-          <div class="mt-12 grid md:grid-cols-3 gap-6">
-            <article class="glass rounded-2xl p-6 border border-white/10 slide-up">
-              <div class="text-3xl text-[var(--gold)]"><i class="ph ph-notebook"></i></div>
-              <h4 class="mt-3 font-semibold">Riset & Naskah</h4>
-              <p class="mt-2 text-sm text-zinc-300">Kumpulkan sumber, catat kronologi, rumuskan naskah ringkas & akurat.</p>
-              <span class="mt-4 inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs">Status: Persiapan</span>
+            <!-- E-Book SKI -->
+            <article class="glass rounded-2xl p-6 border border-white/10 slide-up card-hover cursor-pointer" onclick="openModal('modal1')">
+              <h3 class="text-xl font-semibold text-[var(--gold)]">📖 E-Book SKI</h3>
+              <p class="mt-2 text-sm text-zinc-300">Kumpulan artikel, refleksi, kisah tokoh & perang Islam untuk santri zaman sekarang.</p>
+              <span class="mt-4 inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs">Status: Proses</span>
             </article>
-            <article class="glass rounded-2xl p-6 border border-white/10 slide-up" style="animation-delay:.08s">
-              <div class="text-3xl text-[var(--gold)]"><i class="ph ph-video"></i></div>
-              <h4 class="mt-3 font-semibold">Desain & Visual</h4>
-              <p class="mt-2 text-sm text-zinc-300">Grafis tokoh, peta perang, tipografi kuat dengan nuansa sejarah.</p>
-              <span class="mt-4 inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs">Status: Segera</span>
+
+            <!-- Mini Drama -->
+            <article class="glass rounded-2xl p-6 border border-white/10 slide-up card-hover cursor-pointer" style="animation-delay:.08s" onclick="openModal('modal2')">
+              <h3 class="text-xl font-semibold text-[var(--gold)]">🎭 Mini Drama</h3>
+              <p class="mt-2 text-sm text-zinc-300">Drama pendek yang menghidupkan kisah para panglima, contoh: Perang Yamamah.</p>
+              <span class="mt-4 inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs">Status: Ada</span>
             </article>
-            <article class="glass rounded-2xl p-6 border border-white/10 slide-up" style="animation-delay:.16s">
-              <div class="text-3xl text-[var(--gold)]"><i class="ph ph-share-network"></i></div>
-              <h4 class="mt-3 font-semibold">Publikasi</h4>
-              <p class="mt-2 text-sm text-zinc-300">Rilis berkala di IG/TikTok, bawa diskusi SKI ke santri NJ Bali.</p>
+
+            <!-- Karya Santri -->
+            <article class="glass rounded-2xl p-6 border border-white/10 slide-up card-hover cursor-pointer" style="animation-delay:.16s" onclick="openModal('modal3')">
+              <h3 class="text-xl font-semibold text-[var(--gold)]">✍️ Karya Santri</h3>
+              <p class="mt-2 text-sm text-zinc-300">Puisi, tulisan, atau gambar tentang tokoh Islam, hasil kolaborasi adik-adik santri.</p>
+              <span class="mt-4 inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs">Status: Rencana</span>
+            </article>
+
+            <!-- Publikasi -->
+            <article class="glass rounded-2xl p-6 border border-white/10 slide-up card-hover cursor-pointer" style="animation-delay:.24s" onclick="openModal('modal4')">
+              <h3 class="text-xl font-semibold text-[var(--gold)]">📢 Publikasi</h3>
+              <p class="mt-2 text-sm text-zinc-300">Menyebarkan karya di IG, TikTok, YouTube & forum diskusi santri NJ Bali.</p>
               <span class="mt-4 inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs">Status: Coming Soon</span>
             </article>
-          </div>
 
-          <!-- CTA -->
-          <div class="text-center mt-12">
-            <a href="#home" class="inline-flex items-center gap-2 rounded-xl bg-[var(--gold)] text-black font-semibold px-5 py-3 hover:brightness-110 active:scale-[.98] transition">Kembali ke Biodata <i class="ph ph-arrow-up-right"></i></a>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- MODALS -->
+    <div id="modal1" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-start z-50 overflow-y-auto">
+      <div class="modal-content bg-zinc-900 text-white rounded-2xl shadow-lg p-6 w-11/12 max-w-3xl my-8 relative">
+        <span onclick="closeModal('modal1')" class="cursor-pointer text-2xl font-bold absolute top-4 right-6">&times;</span>
+        <h2 class="text-2xl font-bold mb-4 text-yellow-400">📖 E-Book SKI</h2>
+        <p class="text-gray-200 leading-relaxed text-justify mb-4">
+          Kumpulan tulisan, artikel, dan refleksi tentang kisah-kisah besar dalam Sejarah Kebudayaan Islam. E-book ini bukan sekadar cerita, tapi juga hikmah yang relevan untuk kehidupan santri zaman sekarang. Bisa dibaca online atau diunduh dalam format PDF.
+        </p>
+      </div>
+    </div>
+
+    <div id="modal2" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-start z-50 overflow-y-auto">
+      <div class="modal-content bg-zinc-900 text-white rounded-2xl shadow-lg p-6 w-11/12 max-w-3xl my-8 relative">
+        <span onclick="closeModal('modal2')" class="cursor-pointer text-2xl font-bold absolute top-4 right-6">&times;</span>
+        <h2 class="text-2xl font-bold mb-4 text-yellow-400">🎭 Mini Drama</h2>
+        <p class="text-gray-200 leading-relaxed text-justify mb-4">
+          Drama pendek yang menghidupkan kembali kisah perjuangan para tokoh Islam. Contoh perdana: Perang Yamamah. Media kreatif ini membantu santri belajar sejarah lewat adegan nyata dan peran langsung.
+        </p>
+      </div>
+    </div>
+
+    <div id="modal3" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-start z-50 overflow-y-auto">
+      <div class="modal-content bg-zinc-900 text-white rounded-2xl shadow-lg p-6 w-11/12 max-w-3xl my-8 relative">
+        <span onclick="closeModal('modal3')" class="cursor-pointer text-2xl font-bold absolute top-4 right-6">&times;</span>
+        <h2 class="text-2xl font-bold mb-4 text-yellow-400">✍️ Karya Santri</h2>
+        <p class="text-gray-200 leading-relaxed text-justify mb-4">
+          Wadah bagi adik-adik santri untuk menuangkan kreativitas mereka: puisi, tulisan, atau gambar tentang tokoh Islam. Setiap karya mencerminkan semangat belajar dan cinta sejarah, sekaligus kolaborasi kreatif di pondok.
+        </p>
+      </div>
+    </div>
+
+    <div id="modal4" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-start z-50 overflow-y-auto">
+      <div class="modal-content bg-zinc-900 text-white rounded-2xl shadow-lg p-6 w-11/12 max-w-3xl my-8 relative">
+        <span onclick="closeModal('modal4')" class="cursor-pointer text-2xl font-bold absolute top-4 right-6">&times;</span>
+        <h2 class="text-2xl font-bold mb-4 text-yellow-400">📢 Publikasi</h2>
+        <p class="text-gray-200 leading-relaxed text-justify mb-4">
+          Menyebarkan semangat sejarah Islam melalui berbagai platform: Instagram, TikTok, YouTube, dan forum diskusi bareng santri NJ Bali. Publikasi ini memastikan karya dan hikmah sejarah sampai ke generasi muda lebih luas.
+        </p>
+      </div>
+    </div>
+
   </main>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="border-t border-white/10 bg-black/60 backdrop-blur">
     <div class="mx-auto max-w-6xl px-4 py-6 text-sm text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-3">
       <p>© 2025 Irvan Afandi — Tema Panglima Islam</p>
       <div class="flex items-center gap-4 text-xl">
-        <a href="#" aria-label="Instagram" title="Instagram" class="hover:text-pink-400"><i class="ph ph-instagram-logo"></i></a>
-        <a href="#" aria-label="WhatsApp" title="WhatsApp" class="hover:text-green-400"><i class="ph ph-whatsapp-logo"></i></a>
-        <a href="#" aria-label="Facebook" title="Facebook" class="hover:text-blue-400"><i class="ph ph-facebook-logo"></i></a>
-        <a href="#" aria-label="TikTok" title="TikTok" class="hover:text-red-400"><i class="ph ph-tiktok-logo"></i></a>
-        <a href="mailto:emailkamu@example.com" aria-label="Email" title="Email" class="hover:text-yellow-300"><i class="ph ph-envelope"></i></a>
+        <a href="#" class="hover:text-pink-400"><i class="ph ph-instagram-logo"></i></a>
+        <a href="#" class="hover:text-green-400"><i class="ph ph-whatsapp-logo"></i></a>
+        <a href="#" class="hover:text-blue-400"><i class="ph ph-facebook-logo"></i></a>
+        <a href="#" class="hover:text-red-400"><i class="ph ph-tiktok-logo"></i></a>
+        <a href="mailto:emailkamu@example.com" class="hover:text-yellow-300"><i class="ph ph-envelope"></i></a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Nav active state saat scroll
-    const navHome = document.getElementById('nav-home');
-    const navProjek = document.getElementById('nav-projek');
-    const homeSec = document.getElementById('home');
-    const projekSec = document.getElementById('projek');
-
-    const observer = new IntersectionObserver((entries) => {
+    // Nav active
+    const sections = document.querySelectorAll('main section');
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         const id = entry.target.id;
-        const link = document.querySelector(`a[href="#${id}"]`);
-        if (entry.isIntersecting) {
+        const link = document.querySelector(`header nav a[href="#${id}"]`);
+        if(entry.isIntersecting){
           document.querySelectorAll('header nav a').forEach(a => a.classList.remove('nav-active'));
           link?.classList.add('nav-active');
         }
       });
     }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.05 });
+    sections.forEach(sec => observer.observe(sec));
 
-    observer.observe(homeSec);
-    observer.observe(projekSec);
+    // Modal functions
+    function openModal(id){ document.getElementById(id).classList.remove('hidden'); }
+    function closeModal(id){ document.getElementById(id).classList.add('hidden'); }
   </script>
+
 </body>
 </html>
