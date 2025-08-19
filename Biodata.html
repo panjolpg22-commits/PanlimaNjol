@@ -17,37 +17,20 @@
     html { scroll-behavior: smooth; font-family: 'Poppins', sans-serif; }
     h1,h2,h3,h4,h5,h6 { font-family: 'Playfair Display', serif; }
 
-    /* Backgrounds */
     .bg-hero { position: relative; overflow: hidden; height: 100vh; }
-    .bg-projects { background: url('bg-perang-projects.jpg') center/cover no-repeat; }
-
-    /* Video Overlay */
+    .bg-projects { background: url('assets/bg-perang-projects.jpg') center/cover no-repeat; }
     .overlay { position: relative; z-index: 10; background: linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.7)); }
-
-    /* Animations */
     .fade-in { animation: fade .7s ease-out both; }
     .slide-up { animation: slideUp .7s ease-out both; }
     @keyframes fade { from {opacity:0} to {opacity:1} }
     @keyframes slideUp { from {opacity:0; transform: translateY(16px)} to {opacity:1; transform: translateY(0)} }
-
-    /* Accessibility */
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration:0.01ms !important; }
     }
-
-    /* Card glass style */
     .glass { background:rgba(0,0,0,.55); backdrop-filter: blur(8px); box-shadow: 0 6px 28px rgba(0,0,0,.45); }
-
-    /* Active nav */
     .nav-active { color: var(--gold); }
-
-    /* Video full */
     .video-bg { position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; }
-
-    /* Card hover */
     .card-hover:hover { transform: translateY(-6px); transition:0.3s ease; }
-
-    /* Modal */
     .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); justify-content:center; items-center; z-index:50; }
     .modal-content { background:#111; border-radius:1rem; max-width:600px; padding:2rem; color:#fff; position:relative; }
     .modal-close { position:absolute; top:0.5rem; right:1rem; font-size:1.5rem; cursor:pointer; color:var(--gold); }
@@ -74,14 +57,14 @@
     <!-- HOME / BIODATA -->
     <section id="home" class="bg-hero flex items-center justify-center">
       <video class="video-bg" autoplay muted loop playsinline>
-        <source src="/snaptik_7440809015132687671_v2.mp4" type="video/mp4">
+        <source src="assets/video.mp4" type="video/mp4">
       </video>
       <div class="overlay w-full h-full flex items-center justify-center">
         <div class="mx-auto max-w-5xl px-4 py-24 sm:py-28 grid lg:grid-cols-[260px,1fr] gap-8 items-center">
 
           <!-- Foto Profil -->
           <div class="flex flex-col items-center">
-            <img src="/448786469_779044004218478_7681026214239985584_n.jpg" alt="Foto Irvan Afandi" class="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-[var(--gold)] shadow-xl object-cover fade-in" />
+            <img src="assets/profil.jpg" alt="Foto Irvan Afandi" class="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-[var(--gold)] shadow-xl object-cover fade-in" />
             <div class="mt-4 flex items-center gap-3 text-2xl">
               <a href="https://www.instagram.com/" class="hover:text-pink-400 transition"><i class="ph ph-instagram-logo"></i></a>
               <a href="#" class="hover:text-green-400 transition"><i class="ph ph-whatsapp-logo"></i></a>
@@ -124,28 +107,24 @@
 
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-            <!-- E-Book SKI -->
             <article class="glass rounded-2xl p-6 border border-white/10 slide-up card-hover cursor-pointer" onclick="openModal('modal1')">
               <h3 class="text-xl font-semibold text-[var(--gold)]">📖 E-Book SKI</h3>
               <p class="mt-2 text-sm text-zinc-300">Kumpulan artikel, refleksi, kisah tokoh & perang Islam untuk santri zaman sekarang.</p>
               <span class="mt-4 inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs">Status: Proses</span>
             </article>
 
-            <!-- Mini Drama -->
             <article class="glass rounded-2xl p-6 border border-white/10 slide-up card-hover cursor-pointer" style="animation-delay:.08s" onclick="openModal('modal2')">
               <h3 class="text-xl font-semibold text-[var(--gold)]">🎭 Mini Drama</h3>
-              <p class="mt-2 text-sm text-zinc-300">Drama pendek yang menghidupkan kisah para panglima, contoh: Perang Yamamah.</p>
+              <p class="mt-2 text-sm text-zinc-300">Drama pendek yang menghidupkan kisah para panglima.</p>
               <span class="mt-4 inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs">Status: Ada</span>
             </article>
 
-            <!-- Karya Santri -->
             <article class="glass rounded-2xl p-6 border border-white/10 slide-up card-hover cursor-pointer" style="animation-delay:.16s" onclick="openModal('modal3')">
               <h3 class="text-xl font-semibold text-[var(--gold)]">✍️ Karya Santri</h3>
-              <p class="mt-2 text-sm text-zinc-300">Puisi, tulisan, atau gambar tentang tokoh Islam, hasil kolaborasi adik-adik santri.</p>
+              <p class="mt-2 text-sm text-zinc-300">Puisi, tulisan, atau gambar hasil kolaborasi adik-adik santri.</p>
               <span class="mt-4 inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs">Status: Rencana</span>
             </article>
 
-            <!-- Publikasi -->
             <article class="glass rounded-2xl p-6 border border-white/10 slide-up card-hover cursor-pointer" style="animation-delay:.24s" onclick="openModal('modal4')">
               <h3 class="text-xl font-semibold text-[var(--gold)]">📢 Publikasi</h3>
               <p class="mt-2 text-sm text-zinc-300">Menyebarkan karya di IG, TikTok, YouTube & forum diskusi santri NJ Bali.</p>
@@ -158,42 +137,39 @@
     </section>
 
     <!-- MODALS -->
-    <div id="modal1" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-start z-50 overflow-y-auto">
-      <div class="modal-content bg-zinc-900 text-white rounded-2xl shadow-lg p-6 w-11/12 max-w-3xl my-8 relative">
-        <span onclick="closeModal('modal1')" class="cursor-pointer text-2xl font-bold absolute top-4 right-6">&times;</span>
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span onclick="closeModal('modal1')" class="modal-close">&times;</span>
         <h2 class="text-2xl font-bold mb-4 text-yellow-400">📖 E-Book SKI</h2>
         <p class="text-gray-200 leading-relaxed text-justify mb-4">
-          Kumpulan tulisan, artikel, dan refleksi tentang kisah-kisah besar dalam Sejarah Kebudayaan Islam. E-book ini bukan sekadar cerita, tapi juga hikmah yang relevan untuk kehidupan santri zaman sekarang. Bisa dibaca online atau diunduh dalam format PDF.
+          Kumpulan tulisan & artikel Sejarah Kebudayaan Islam. Bisa dibaca online atau diunduh PDF.
         </p>
       </div>
     </div>
-
-    <div id="modal2" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-start z-50 overflow-y-auto">
-      <div class="modal-content bg-zinc-900 text-white rounded-2xl shadow-lg p-6 w-11/12 max-w-3xl my-8 relative">
-        <span onclick="closeModal('modal2')" class="cursor-pointer text-2xl font-bold absolute top-4 right-6">&times;</span>
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span onclick="closeModal('modal2')" class="modal-close">&times;</span>
         <h2 class="text-2xl font-bold mb-4 text-yellow-400">🎭 Mini Drama</h2>
         <p class="text-gray-200 leading-relaxed text-justify mb-4">
-          Drama pendek yang menghidupkan kembali kisah perjuangan para tokoh Islam. Contoh perdana: Perang Yamamah. Media kreatif ini membantu santri belajar sejarah lewat adegan nyata dan peran langsung.
+          Drama pendek menghidupkan kisah perjuangan para tokoh Islam.
         </p>
       </div>
     </div>
-
-    <div id="modal3" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-start z-50 overflow-y-auto">
-      <div class="modal-content bg-zinc-900 text-white rounded-2xl shadow-lg p-6 w-11/12 max-w-3xl my-8 relative">
-        <span onclick="closeModal('modal3')" class="cursor-pointer text-2xl font-bold absolute top-4 right-6">&times;</span>
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span onclick="closeModal('modal3')" class="modal-close">&times;</span>
         <h2 class="text-2xl font-bold mb-4 text-yellow-400">✍️ Karya Santri</h2>
         <p class="text-gray-200 leading-relaxed text-justify mb-4">
-          Wadah bagi adik-adik santri untuk menuangkan kreativitas mereka: puisi, tulisan, atau gambar tentang tokoh Islam. Setiap karya mencerminkan semangat belajar dan cinta sejarah, sekaligus kolaborasi kreatif di pondok.
+          Wadah kreativitas adik-adik santri: puisi, tulisan, gambar.
         </p>
       </div>
     </div>
-
-    <div id="modal4" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-start z-50 overflow-y-auto">
-      <div class="modal-content bg-zinc-900 text-white rounded-2xl shadow-lg p-6 w-11/12 max-w-3xl my-8 relative">
-        <span onclick="closeModal('modal4')" class="cursor-pointer text-2xl font-bold absolute top-4 right-6">&times;</span>
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <span onclick="closeModal('modal4')" class="modal-close">&times;</span>
         <h2 class="text-2xl font-bold mb-4 text-yellow-400">📢 Publikasi</h2>
         <p class="text-gray-200 leading-relaxed text-justify mb-4">
-          Menyebarkan semangat sejarah Islam melalui berbagai platform: Instagram, TikTok, YouTube, dan forum diskusi bareng santri NJ Bali. Publikasi ini memastikan karya dan hikmah sejarah sampai ke generasi muda lebih luas.
+          Menyebarkan karya di Instagram, TikTok, YouTube & forum diskusi santri NJ Bali.
         </p>
       </div>
     </div>
@@ -230,8 +206,8 @@
     sections.forEach(sec => observer.observe(sec));
 
     // Modal functions
-    function openModal(id){ document.getElementById(id).classList.remove('hidden'); }
-    function closeModal(id){ document.getElementById(id).classList.add('hidden'); }
+    function openModal(id){ document.getElementById(id).style.display='flex'; }
+    function closeModal(id){ document.getElementById(id).style.display='none'; }
   </script>
 
 </body>
